@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Controlador del Foco</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card  >
+    <ion-item>
+      
+      <ion-img class="left-image" slot="start" src="assets/apagado.png" *ngIf="Dispositivo.estadoFoco == 0 " (click)="Encenderapagarfoco()"></ion-img>
+      <ion-img class="left-image" slot="start" src="assets/encendido.png" *ngIf="Dispositivo.estadoFoco > 0" (click)="Encenderapagarfoco()"></ion-img>
+      <ion-img class="left-image" slot="end" src="assets/enchufeapagado.png" *ngIf="Dispositivo.estadoEnchufe == 0 "(click)="estadocambioenchufe()"></ion-img> 
+      <ion-img class="left-image" slot="end" src="assets/enchufeencendido.png" *ngIf="Dispositivo.estadoEnchufe == 1  "(click)="estadocambioenchufe()"></ion-img> 
+      
+    </ion-item>
+    <ion-item >
+      <ion-range [(ngModel)]='dimmer.value' min="{{dimmer.min}}" max="{{dimmer.max}}" step="{{dimmer.step}}"  color="secondary" pin="true" [(ngModel)]="dimmer.answer" (mouseup)="estadocambiofoco()">
+        <ion-label slot="start">{{dimmer.precisionMin}}</ion-label>
+        <ion-label slot="end">{{dimmer.precisionMax}}</ion-label>
+      </ion-range>
+    </ion-item>
+    <ion-card-content>
+      <ion-item>
+        <ion-label >Temperatura</ion-label>
+        <ion-label >{{Dispositivo.temperatura}}</ion-label>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Humedad</ion-label>
+        <ion-label >{{Dispositivo.humedad}}</ion-label>
+      </ion-item>
+
+      
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

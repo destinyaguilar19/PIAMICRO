@@ -9,22 +9,25 @@
 
 <ion-content class="auth-form">
 
-<form>
+
   <div class="input-group">
+    <form [formGroup]="form">
       <ion-item lines="full">
         <ion-label position="floating">Usuario</ion-label>
-        <ion-input type="password" required></ion-input>
+        <ion-input  formControlName="userName"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" required></ion-input>
+        <ion-input   formControlName="password"></ion-input>
       </ion-item>
       <ion-col>
-          <ion-button type="submit" color="danger" expand="block">Iniciar sesion</ion-button>
+          <ion-button (click)="login()" color="danger" expand="block">Iniciar sesion</ion-button>
       </ion-col>
+    </form>
+      
       
   </div>
-</form>
+
           
      
 
